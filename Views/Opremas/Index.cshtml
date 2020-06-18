@@ -1,0 +1,71 @@
+﻿@model IEnumerable<OzoMvc.Models.Oprema>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Naziv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KupovnaVrijednost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KnjigovodstvenaVrijednost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VrijemeAmortizacije)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Referentni)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Skladiste)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vrsta)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KupovnaVrijednost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KnjigovodstvenaVrijednost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VrijemeAmortizacije)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referentni.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Skladiste.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vrsta.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.InventarniBroj">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.InventarniBroj">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.InventarniBroj">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
